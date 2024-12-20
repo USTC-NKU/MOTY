@@ -1,0 +1,138 @@
+@media screen and (max-width: 414px){
+.sub2-item a {
+    color: #ddd;
+    padding-left: 0px;}
+.sub2-item a{padding-left:39px;}
+}
+@media screen and (max-width: 1000px){
+.sub2-item {
+   
+    line-height: 25px !important;}
+}
+
+        input.search-txt::-webkit-input-placeholder{
+            color:#fff;}
+        input.search-txt::-moz-placeholder{   /* mozilla firefox 19+ */
+            color:#fff;}
+        input.search-txt:-moz-placeholder{    /* mozilla firefox 4 to 18 */
+            color:#fff;}
+        input.search-txt:-ms-input-placeholder{  /* internet explorer 10-11 */ 
+            color:#fff;}
+  
+.news-1:hover img {
+    transform: none;}
+    .ztjjbox{
+      background:url(zu11.jpg) bottom no-repeat;
+      background-size:100% 100%;}
+    .ztjjbox .swiper-container {
+      width: 86.5vw;
+      height: auto;
+      padding:80px 0 125px;
+      margin-left: auto;
+      margin-right: auto;}
+    .ztjjbox .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      position:relative;
+      /* center slide text vertically */
+
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      transition-property:all;}
+  .ztjjbox .swiper-slide>div{box-shadow: 0px 40px 35px rgba(154,33,50,0.3);}
+.ztjjbox .swiper-button-prev,.ztjjbox .swiper-container-rtl .swiper-button-prev {
+    left: 30%;
+    right: auto;
+    top: auto;
+    bottom: 0;
+    background: url(Left-icon.png) center no-repeat;
+    width: 55px;
+    height: 55px;}
+.ztjjbox .swiper-button-next:after,.ztjjbox .swiper-container-rtl .swiper-button-next:after,.ztjjbox .swiper-button-prev:after,.ztjjbox .swiper-container-rtl .swiper-button-prev:after{
+    display: none;}
+.ztjjbox .swiper-button-next,.ztjjbox .swiper-container-rtl .swiper-button-next{
+    right: 30%;
+    left: auto;
+    top: auto;
+    bottom: 0;
+    background: url(Right-icon.png) center no-repeat;
+    width: 55px;
+    height: 55px;}
+
+.ztjjbox.swiper-3d.swiper-css-mode .swiper-wrapper {
+    perspective: 1200px
+;}
+
+.ztjjbox.swiper-3d .swiper-wrapper {
+    transform-style: preserve-3d;}
+
+.ztjjbox.swiper-3d {
+    perspective: 1200px;}
+
+.ztjjbox.swiper-3d .swiper-cube-shadow,.swiper-3d .swiper-slide {}
+.ztjjbox.swiper-slide.swiper-slide-active{
+    transform: scale(1) translate3d(0px, 0px, 0px) rotateY(0deg);}
+
+.ztjjbox .swiper-slide p{display:none;position:absolute;top:622px;left:0;color: #9b2033;font-size: 24px;width:100%;}
+.ztjjbox .swiper-slide.swiper-slide-active p{display:block;}
+.ztjjbox .swiper-slide.swiper-slide-active{transform:scale(1) !important;}
+@media screen and (max-width: 1480px){
+.ztjjbox .swiper-slide p {
+    bottom: -110px;font-size: 20px;}
+
+}
+@media screen and (max-width: 1210px){
+.ztjjbox .swiper-slide p {
+    bottom: -112px;
+    font-size: 17px;}}
+@media screen and (max-width: 1024px){
+.ztjjbox.swiper-3d {
+    perspective: 600px;}
+.ztjjbox .swiper-container{background:none;padding:40px 0 72px;}
+.ztjjbox .swiper-slide>div{box-shadow: 0px 20px 15px rgba(154,33,50,0.3);}
+.ztjjbox .swiper-slide p {
+    bottom: -67px;
+    font-size: 16px;}
+.ztjjbox .swiper-button-prev,.ztjjbox .swiper-container-rtl .swiper-button-prev{left: 5%; background: url(Left-icon.png) center no-repeat;background-size:100%;width: 30px;height: 30px;}
+.ztjjbox .swiper-button-next,.ztjjbox .swiper-container-rtl .swiper-button-next{right: 5%; background: url(Right-icon.png) center no-repeat;background-size:100%;width: 30px;height: 30px;}
+
+
+}
+
+@media screen and (max-width: 700px){
+.ztjjbox .swiper-slide p{bottom:-62px;}
+
+}
+@media screen and (max-width: 480px){
+.ztjjbox .swiper-slide p {
+    bottom: -67px;
+    font-size: 14px;}}
+@media screen and (max-width: 380px){
+.ztjjbox .swiper-slide p {
+    font-size: 12px;}}
+
+.mt-content em {
+    width: auto;
+    position: absolute;
+    right: 6%;
+    bottom: 38px;
+    z-index: 12;
+    font-size: 14px;
+    color: #808080;
+    font-family: 'EuclidCircularA';}
+.bttd{
+object-fit:cover;
+position:absolute;
+top:0;
+left:0;
+height:auto;}
+.bttd1{
+height:0;
+position:relative;
+padding-top:56%;}
