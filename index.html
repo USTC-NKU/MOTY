@@ -3669,6 +3669,17 @@ window.addEventListener('DOMContentLoaded', function() {
         }
       </style>
 
+      <div class="aw-metrics" id="aw-metrics" aria-label="数说一年">
+        <div class="aw-metrics-head">
+          <h3 class="aw-metrics-title">数说一年</h3>
+          <p class="aw-metrics-subtitle">把这一年的偏爱与节奏，浓缩成几组最直观的数字。</p>
+        </div>
+        <div class="aw-metrics-grid" id="awMetricsGrid" role="list" aria-label="年度数据概览"></div>
+        <div class="aw-metrics-foot">
+          <code>2025·年度数据</code>
+        </div>
+      </div>
+      
       <header class="aw-header">
         <h2 class="aw-title">年度典礼</h2>
         <p class="aw-subtitle">回顾一年的精彩时刻，致敬每一个让你闪光的瞬间</p>
@@ -3695,7 +3706,147 @@ window.addEventListener('DOMContentLoaded', function() {
         <button class="aw-btn" id="aw-speed-up" aria-label="提高速度">➕</button>
       </div>
 
-      <!-- Hover fly-card (single reused instance) -->
+      
+      <!-- 数说一年：Year in numbers -->
+      <style id="aw-metrics-style">
+        .aw-metrics{
+          margin-top: clamp(22px, 4vw, 36px);
+          padding-top: clamp(14px, 3vw, 22px);
+          border-top: 1px solid rgba(255,255,255,0.12);
+        }
+        .aw-metrics-head{
+          text-align: center;
+          margin-bottom: clamp(14px, 2.5vw, 20px);
+        }
+        .aw-metrics-title{
+          font-size: clamp(18px, 3.2cqi, 26px);
+          line-height: 1.2;
+          margin: 0 0 6px;
+          font-weight: 800;
+          letter-spacing: .4px;
+          background: linear-gradient(45deg, var(--aw-accent-1), var(--aw-accent-2));
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+        .aw-metrics-subtitle{
+          margin: 0 auto;
+          max-width: 70ch;
+          color: var(--aw-muted);
+          font-size: clamp(13px, 2.1cqi, 15px);
+        }
+        .aw-metrics-grid{
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          gap: clamp(10px, 2vw, 14px);
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        .aw-metric-card{
+          grid-column: span 4;
+          min-height: 120px;
+          background: var(--aw-card-bg);
+          border: 1px solid var(--aw-card-border);
+          border-radius: var(--aw-radius);
+          box-shadow: var(--aw-shadow);
+          padding: 16px 16px 14px;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .aw-metric-top{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+        .aw-metric-icon{
+          width: 42px;
+          height: 42px;
+          display: grid;
+          place-items: center;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.10);
+          border: 1px solid rgba(255,255,255,0.16);
+          font-size: 22px;
+          flex: 0 0 auto;
+        }
+        .aw-metric-kpi{
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+          justify-content: flex-end;
+          flex: 1 1 auto;
+          min-width: 0;
+        }
+        .aw-metric-value{
+          font-size: clamp(20px, 5cqi, 34px);
+          font-weight: 900;
+          letter-spacing: .3px;
+          line-height: 1;
+          color: #fff;
+          white-space: nowrap;
+        }
+        .aw-metric-unit{
+          color: rgba(255,255,255,0.85);
+          font-size: 14px;
+          font-weight: 700;
+          white-space: nowrap;
+        }
+        .aw-metric-label{
+          font-size: 14px;
+          font-weight: 800;
+          color: rgba(255,255,255,0.95);
+          letter-spacing: .2px;
+        }
+        .aw-metric-hint{
+          font-size: 13px;
+          color: rgba(255,255,255,0.78);
+          line-height: 1.55;
+        }
+        .aw-metric-bar{
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 6px;
+          background: rgba(255,255,255,0.08);
+        }
+        .aw-metric-bar::after{
+          content:"";
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: calc(var(--pct, 60) * 1%);
+          background: linear-gradient(90deg, var(--aw-accent-1), var(--aw-accent-2));
+          border-radius: 0 999px 999px 0;
+        }
+        .aw-metrics-foot{
+          max-width: 1100px;
+          margin: 10px auto 0;
+          color: rgba(255,255,255,0.72);
+          font-size: 12px;
+          text-align: center;
+        }
+        .aw-metrics-foot code{
+          color: rgba(255,255,255,0.9);
+          background: rgba(255,255,255,0.10);
+          padding: 1px 6px;
+          border-radius: 8px;
+          border: 1px solid rgba(255,255,255,0.14);
+        }
+        @container awards (max-width: 860px){
+          .aw-metric-card{ grid-column: span 6; }
+        }
+        @container awards (max-width: 560px){
+          .aw-metric-card{ grid-column: span 12; }
+        }
+      </style>
+
+<!-- Hover fly-card (single reused instance) -->
       <div class="aw-fly" id="aw-fly" role="dialog" aria-live="polite" aria-hidden="true"></div>
 
       <!-- Modal for rich details -->
@@ -4014,6 +4165,138 @@ window.addEventListener('DOMContentLoaded', function() {
           requestAnimationFrame(() => setPlayState(true));
         })();
       </script>
+    
+      <script id="aw-metrics-script">
+        (function(){
+          const grid = document.getElementById('awMetricsGrid');
+          if(!grid) return;
+
+          // 你可以在这里改成自己的真实数据
+          const yearStats = [
+            { icon: "🎧", label: "听歌天数", value: 333, unit: "天", hint: "在887小时18分钟里，与4182首歌相伴", pct: 91 },
+            { icon: "👣", label: "脚步丈量", value: 3468548, unit: "步", hint: "不知不觉，竟比去年增长52.4%", pct: 100 },
+            { icon: "🖊", label: "哔哩大学", value: 7958, unit: "分钟", hint: "哔哩哔哩大学，你值得拥有", pct: 34 },
+            { icon: "📚", label: "纸质阅读", value: 7, unit: "本", hint: "一些重读，一些新遇", pct: 50 },
+            { icon: "🏙", label: "旅行城市", value: 5, unit: "座", hint: "有故地重游，有新芽萌发", pct: 100 },
+            { icon: "📷", label: "闪光快门", value: 1072, unit: "天", hint: "慢慢地，也比去年更爱影录生活", pct: 100 },
+            { icon: "✈", label: "飞越蓝天", value: 13440, unit: "公里", hint: "沉香而浓郁的，是旭日的暖阳围裹的思念", pct: 100 },
+            { icon: "📞", label: "天地连线 ", value: 20618, unit: "分钟", hint: "我想我们都喜欢这个数字叭", pct: 100 },
+            { icon: "❄", label: "雪花纷飞", value: 1, unit: "场", hint: "冬日里最温柔的问候", pct: 100 }
+          ];
+
+          const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          function formatNumber(n){
+            if(typeof n !== 'number') return String(n ?? '');
+            return n.toLocaleString('zh-CN');
+          }
+
+          function cardTemplate(s){
+            const pct = Math.max(0, Math.min(100, Number(s.pct ?? 60)));
+            const value = formatNumber(s.value);
+            const unit = s.unit ? String(s.unit) : '';
+            const label = String(s.label ?? '');
+            const hint = String(s.hint ?? '');
+            const icon = String(s.icon ?? "✨");
+
+            const el = document.createElement('article');
+            el.className = 'aw-metric-card';
+            el.setAttribute('role','listitem');
+            el.style.setProperty('--pct', String(pct));
+            el.innerHTML = `
+              <div class="aw-metric-top">
+                <div class="aw-metric-icon" aria-hidden="true">${icon}</div>
+                <div class="aw-metric-kpi">
+                  <span class="aw-metric-value" data-target="${String(s.value)}">${prefersReducedMotion ? value : '0'}</span>
+                  <span class="aw-metric-unit">${unit}</span>
+                </div>
+              </div>
+              <div class="aw-metric-label">${label}</div>
+              <div class="aw-metric-hint">${hint}</div>
+              <div class="aw-metric-bar" aria-hidden="true"></div>
+            `;
+            return el;
+          }
+
+          grid.innerHTML = '';
+          const cards = yearStats.map(s => {
+            const el = cardTemplate(s);
+            grid.appendChild(el);
+            return el;
+          });
+
+          if(prefersReducedMotion) return;
+
+          const target = document.getElementById('aw-metrics');
+          if(!target) return;
+
+          // 进入视窗时再做数字动效（轻量、无依赖）
+          // 目标：每次进入视窗都滚动一次；离开视窗后数字重置为 0，下一次再进入可重复播放。
+          function resetNumbers(){
+            target.querySelectorAll('.aw-metric-value').forEach(span => {
+              // 取消可能仍在进行的动画
+              if(span.__rafId) { cancelAnimationFrame(span.__rafId); span.__rafId = null; }
+              const raw = span.getAttribute('data-target');
+              const num = Number(raw);
+              // reduced motion 下不做滚动，直接显示最终值
+              span.textContent = prefersReducedMotion
+                ? (Number.isFinite(num) ? formatNumber(num) : (raw ?? ''))
+                : '0';
+            });
+          }
+
+          function playNumbers(){
+            target.querySelectorAll('.aw-metric-value').forEach(span => {
+              const targetRaw = span.getAttribute('data-target');
+              const targetNum = Number(targetRaw);
+              if(!Number.isFinite(targetNum)) { span.textContent = targetRaw ?? ''; return; }
+
+              if(span.__rafId) { cancelAnimationFrame(span.__rafId); span.__rafId = null; }
+              const dur = 2000;
+              const t0 = performance.now();
+              const step = (t) => {
+                const p = Math.min(1, (t - t0) / dur);
+                const eased = 1 - Math.pow(1 - p, 3);
+                const cur = Math.round(targetNum * eased);
+                span.textContent = formatNumber(cur);
+                if(p < 1) span.__rafId = requestAnimationFrame(step);
+                else span.__rafId = null;
+              };
+              span.textContent = '0';
+              span.__rafId = requestAnimationFrame(step);
+            });
+          }
+
+          // 初始先重置（这样首次进入视窗也会滚动）
+          resetNumbers();
+
+          // 进入时播放；离开时重置，便于下次再播放
+          let armed = true;
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+              if(e.target !== target) return;
+
+              if(e.isIntersecting && armed){
+                armed = false;
+                if(!prefersReducedMotion) playNumbers();
+              }
+
+              if(!e.isIntersecting){
+                armed = true;
+                resetNumbers();
+              }
+            });
+          }, { threshold: 0.25 });
+
+          io.observe(target);
+
+          // （可选）暴露方法：如果你用按钮/切换页显示该板块，可手动触发
+          window.playYearStats = () => { armed = false; if(!prefersReducedMotion) playNumbers(); };
+          window.resetYearStats = () => { armed = true; resetNumbers(); };
+
+        })();
+      </script>
+
     </section>
   </main>
 
@@ -5859,6 +6142,8 @@ function showEventModal(dateKey){
 2025年12月28日399'34''微信电话+7'56''电话
 
 2025年12月29日85'49''微信视频+7'50''电话
+
+2025年12月30日64'18''微信视频
 
     `;
 
